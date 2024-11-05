@@ -7,7 +7,6 @@ import LineChart from './LineChart';
 import CandlestickChart from './candlestick'
 import ConvertAndPrint from "./convertnprint";
 import Stockchart from "./components/stockchart_plotly";
-import MarketPage from "./market_page";
 import OiTree from "./components/levelchart_plotly";
 import DynamicSubplots from "./components/testplotly";
 
@@ -16,20 +15,21 @@ import DynamicSubplots from "./components/testplotly";
 
 
 
-function App() {
+function marketsnapshot() {
   return (
     <div className="App">
       {/*<h1>Stock Price Analysis</h1>*/}
-      {/*<Stockchart symbol="TATASTEEL" volume={false} levelFlag={true}/>*/}
+      <Stockchart symbol="TATASTEEL" volume={false} levelFlag={true}/>
       {/*<Stockchart symbol="NIFTY FMCG" candles={false} smaFlag={false} metric={['return']} />*/}
       <Stockchart symbol="IOC" levelFlag={true} volume={true}/>
-      {/*<Stockchart symbol="SBIN" levelFlag={true} volume={true}/>*/}
+      <Stockchart symbol="SBIN" levelFlag={true} volume={true}/>
       {/*<OiTree symbol="SBIN"/>*/}
-      {/*<StockChartest />*/}
-      <MarketPage />
-    </div>
 
+
+      {/*<StockChartest />*/}
+
+    </div>
   );
 }
 
-export default App;
+export default marketsnapshot;

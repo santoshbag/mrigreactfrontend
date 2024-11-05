@@ -1,0 +1,23 @@
+/* Grid container for the charts */
+.chart-grid {
+  display: grid;
+  /*grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));*/
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  /* Automatically adjust columns */
+
+  grid-gap: 10px;
+  /*justify-items: center;*/
+  /*margin: 5px;*/
+  justify-items: stretch;
+  align-items: stretch;
+  margin: 10px;
+  width: 100%;  /* Ensure the grid container takes full width */
+}
+
+/* Each individual chart container */
+.chart-container {
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  /*height: 300px; !* Ensures charts have consistent height *!*/
+
+}
