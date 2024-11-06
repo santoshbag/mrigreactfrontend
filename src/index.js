@@ -22,8 +22,7 @@ import MFPage from "./mf_page";
 import Login from "./components/userlogin";
 import PortfolioPage from "./portfolio";
 import StockHome from "./stock_home";
-import RatesPage from "./rates_page";
-import BondPage from "./bond_page";
+import QuantPage from "./quant_page";
 
 const App = () => {
   return (
@@ -41,8 +40,7 @@ const App = () => {
         <Route path="/mf/:mfsymbol" element={<MFPage />} />
         <Route path="/mf/" element={<MFPage />} />
         <Route path="/portfolio/" element={<PortfolioPage />} />
-        <Route path="/rates/" element={<RatesPage />} />
-        <Route path="/bonds/" element={<BondPage />} />
+        <Route path="/quant/" element={<QuantPage />} />
 
         <Route path="/test" element={<Test />} />
         {/*<Route path="/returns" element={<ReturnsPage />} />*/}

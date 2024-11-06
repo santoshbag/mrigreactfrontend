@@ -117,11 +117,11 @@ function RAPage() {
                                 <img src="/img/bonds.jpg" class="img-fluid rounded-top w-100" alt="Image"/>
                             </div>
                             <div class="rounded-bottom p-4">
-                                <a href="/rates/" class="h4 d-inline-block mb-4">Quantitative Tools</a>
+                                <a href="/quant/" class="h4 d-inline-block mb-4">Quantitative Tools</a>
                                 <p class="mb-4">
                                     The Analytics platform has tools for bespoke analysis. We have quantitative models for analysis of Interest Rates, Instrument Valuation and Sensitivity. Our Asset coverage spans Equity, Fixed Income and Credit. Cash as well as Derivatives
                                 </p>
-                                <a class="btn btn-primary rounded-pill py-2 px-4" href="/rates/">Learn More</a>
+                                <a class="btn btn-primary rounded-pill py-2 px-4" href="/quant/">Learn More</a>
                             </div>
                         </div>
                     </div>

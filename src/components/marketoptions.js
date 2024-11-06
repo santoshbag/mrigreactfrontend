@@ -68,9 +68,9 @@ const blackScholes = (S, K, T, r, sigma, optionType,metric) => {
 
 const MarketOption = ({symbol}) => {
 
-  const [strikeRange, setStrikeRange] = useState([]);
+  const [strikeRange, setStrikeRange] = useState([0,120]);
   const [expiryRange, setExpiryRange] = useState([]);
-  const [spotRange, setSpotRange] = useState([]);
+  const [spotRange, setSpotRange] = useState([100]);
   const [loaded, setLoaded] = useState(false);
 
   // const strikeRange = null;
@@ -129,6 +129,8 @@ const MarketOption = ({symbol}) => {
 
   console.log("expiry",expiryRange)
   console.log("SPOT",symbol,spotRange)
+  console.log("Payoffs",symbol,payoffs)
+
 
   const currentDate = new Date();
   const ttm = [];

@@ -33,8 +33,8 @@ function Test() {
       {/*<Stockchart symbol="IOC" levelFlag={true} volume={true}/>*/}
       {/*<Datatable table="ta" symbol="nifty_50"/>*/}
       {/*<OptionPricing/>*/}
-      {/*  <OS/>*/}
-        <Bonds/>
+        <OS/>
+        {/*<Bonds/>*/}
       {/*<Register/>*/}
       {/*<SocialLogin/>*/}
       {/*<Stockchart symbol="SBIN" levelFlag={true} volume={true}/>*/}

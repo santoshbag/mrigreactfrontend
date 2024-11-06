@@ -136,6 +136,29 @@ function StockHome() {
                    </div>
                 </div>
             </div>
+        {/*<!-- Tech Analysis Start -->*/}
+            <div className="container-fluid service py-5">
+                <div className="container py-5">
+                    <div className="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s"
+                         style={{maxwidth: '800px'}}>
+                        {/*<h4 class="text-primary">Our Services</h4>*/}
+                        <h5 className="display-5 mb-4">Technical Analysis Snapshot </h5>
+                        {/*<p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt sint dolorem autem obcaecati, ipsam mollitia hic.*/}
+                        {/*</p>*/}
+                    </div>
+                    <div className="row g-4">
+
+                        {/*<div className="col-md-12 col-lg-12 wow fadeInUp" data-wow-delay="0.6s">*/}
+                            <div className="service-item">
+                            <DisplayTable table='ta' symbol='nifty_50'/>
+                            </div>
+                        {/*</div>*/}
+                        {/*<div className="col-md-12 col-lg-12 wow fadeInUp" data-wow-delay="0.6s">*/}
+                    </div>
+                        {/*</div>*/}
+                </div>
+            </div>
+        {/*<!-- Tech Analysis End -->*/}
         {/*}<!-- Footer Start -->*/}
         <Footer/>
         {/*<!-- Footer End -->*/}
