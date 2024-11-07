@@ -25,7 +25,7 @@ function NAV({activetag="home"}) {
             <a href="/marketpage" className={activetag === "marketpage" ? "nav-item nav-link active" : "nav-item nav-link"}>Markets</a>
             {/*<!--<a href="service.html" class="nav-item nav-link">Services</a>-->*/}
             <div className="nav-item dropdown ">
-              <a href="service.html" className={activetag === "service" ? "nav-link active" : "nav-link"} data-bs-toggle="dropdown">
+              <a href="/stock/" className={activetag === "service" ? "nav-link active" : "nav-link"} data-bs-toggle="dropdown">
                 <span className="dropdown-toggle">Services</span>
               </a>
               <div className="dropdown-menu m-0">
