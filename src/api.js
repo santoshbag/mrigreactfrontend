@@ -1,7 +1,10 @@
 import axios from 'axios';
+import settings from './../resources/stocklist.json';
 
-const url = 'http://127.0.0.1:8000';
-
+var url = settings.dev_server;
+if (settings.environment === "production"){
+    url = settings.prod_server;
+}
 export const fetchStockPrice = async (symbol) => {
   // Replace with your actual API call
     const response = await fetch(`${url}/api/stockdata/${symbol}/1Y`);

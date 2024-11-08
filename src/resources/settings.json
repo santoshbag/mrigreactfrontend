@@ -2,6 +2,8 @@
   "name": "mriganalytics",
   "version": "1.0.0",
   "environment" : "development",
+  "prod_server" : "http://192.168.29.98",
+  "dev_server" : "http://127.0.0.1:8000",
   "dependencies": {
   }
 }
