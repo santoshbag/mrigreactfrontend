@@ -1,5 +1,5 @@
 import axios from 'axios';
-import settings from './../resources/stocklist.json';
+import settings from './resources/settings.json';
 
 var url = settings.dev_server;
 if (settings.environment === "production"){
