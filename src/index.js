@@ -23,6 +23,7 @@ import Login from "./components/userlogin";
 import PortfolioPage from "./portfolio";
 import StockHome from "./stock_home";
 import QuantPage from "./quant_page";
+import NewsPage1 from "./stockhome";
 
 const App = () => {
   return (

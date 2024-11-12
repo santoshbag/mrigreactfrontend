@@ -32,7 +32,7 @@ import Footer from "./pages/footer";
 
 
 
-function NewsPage() {
+function NewsPage1() {
   const [news, setNews] = useState(null);
 
   useEffect(() =>
@@ -98,7 +98,9 @@ function NewsPage() {
                    :""}
                 </div>
             </div>
-
+        {/*}<!-- Footer Start -->*/}
+        <Footer/>
+        {/*<!-- Footer End -->*/}
 
         {/*}<!-- Back to Top -->*/}
         <a href="#" class="btn btn-primary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
@@ -123,4 +125,4 @@ function NewsPage() {
   );
 }
 
-export default NewsPage;
+export default NewsPage1;

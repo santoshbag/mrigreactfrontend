@@ -22,18 +22,18 @@ import 'owl.carousel';
 
 function HomePage() {
 
-    useEffect(() => {
-        // Initialize Owl Carousel when the component mounts
-        $('.owl-carousel').owlCarousel({
-          loop: true,
-          margin: 10,
-          nav: true,
-          items: 1,
-          autoplay: true,
-          autoplayTimeout: 3000,
-          autoplayHoverPause: true,
-        });
-      }, []); // Empty dependency array ensures this runs once after component mounts
+    // useEffect(() => {
+    //     // Initialize Owl Carousel when the component mounts
+    //     $('.owl-carousel').owlCarousel({
+    //       loop: true,
+    //       margin: 10,
+    //       nav: true,
+    //       items: 1,
+    //       autoplay: true,
+    //       autoplayTimeout: 3000,
+    //       autoplayHoverPause: true,
+    //     });
+    //   }, []); // Empty dependency array ensures this runs once after component mounts
 
   return (
       <div>

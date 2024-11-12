@@ -103,9 +103,9 @@ export const fetchNews = async () => {
 export const fetchMarketOptions = async (symbol) => {
   // Replace with your actual API call
     const response = await fetch(`${url}/api/mops/${symbol}/`);
-    const data = await response.json();
+        const data = await response.json();
         return data;
-    };
+};
 
 
 export const fetchMarketMovers = async () => {

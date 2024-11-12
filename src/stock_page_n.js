@@ -221,6 +221,11 @@ function MarketPage() {
             </div>
         {/*<!-- Option Analysis End -->*/}
 
+
+        {/*}<!-- Footer Start -->*/}
+        <Footer/>
+        {/*<!-- Footer End -->*/}
+
         {/*}<!-- Back to Top -->*/}
         <a href="#" class="btn btn-primary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
 

@@ -20,7 +20,7 @@ function NAV({activetag="home"}) {
         </button>
         <div className="collapse navbar-collapse " id="navbarCollapse">
           <div className="navbar-nav ms-auto py-0">
-            <a href="/home.html" className={activetag === "home" ? "nav-item nav-link active" : "nav-item nav-link"}>Home</a>
+            <a href="/" className={activetag === "home" ? "nav-item nav-link active" : "nav-item nav-link"}>Home</a>
             <a href="/news" className={activetag === "news" ? "nav-item nav-link active" : "nav-item nav-link"}>News</a>
             <a href="/marketpage" className={activetag === "marketpage" ? "nav-item nav-link active" : "nav-item nav-link"}>Markets</a>
             {/*<!--<a href="service.html" class="nav-item nav-link">Services</a>-->*/}

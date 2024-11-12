@@ -23,6 +23,7 @@ import StackedForm from "./components/raforms";
 import SpotRateForm from "./components/spotrateform";
 import Rates from "./components/ratesCalculator";
 import Bonds from "./components/BondCalculator";
+import HeaderCarousel from "./pages/header_carousel";
 
 function Test() {
   return (
@@ -33,7 +34,7 @@ function Test() {
       {/*<Stockchart symbol="IOC" levelFlag={true} volume={true}/>*/}
       {/*<Datatable table="ta" symbol="nifty_50"/>*/}
       {/*<OptionPricing/>*/}
-        <OS/>
+        <HeaderCarousel/>
         {/*<Bonds/>*/}
       {/*<Register/>*/}
       {/*<SocialLogin/>*/}
