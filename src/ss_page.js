@@ -69,7 +69,7 @@ function SSPage() {
                     <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
                         <div class="service-item">
                             <div class="service-img">
-                                <img src="/img/ss1.jpg" class="img-fluid rounded-top w-100" alt="Image"/>
+                                <img src={`${process.env.PUBLIC_URL}/img/ss1.jpg`} class="img-fluid rounded-top w-100" alt="Image"/>
                             </div>
                             <div class="rounded-bottom p-4">
                                 <a href="#stmacd" class="h4 d-inline-block mb-4">Momentum Strategies</a>
@@ -83,7 +83,7 @@ function SSPage() {
                     <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
                         <div class="service-item">
                             <div class="service-img">
-                                <img src="/img/ss2.jpg" class="img-fluid rounded-top w-100" alt="Image"/>
+                                <img src={`${process.env.PUBLIC_URL}/img/ss2.jpg`} class="img-fluid rounded-top w-100" alt="Image"/>
                             </div>
                             <div class="rounded-bottom p-4">
                                 <a href="/os/" class="h4 d-inline-block mb-4">Option Strategies</a>
@@ -99,7 +99,7 @@ function SSPage() {
                     <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
                         <div class="service-item">
                             <div class="service-img">
-                                <img src="/img/ss1.jpg" class="img-fluid rounded-top w-100" alt="Image"/>
+                                <img src={`${process.env.PUBLIC_URL}/img/ss1.jpg`} class="img-fluid rounded-top w-100" alt="Image"/>
                             </div>
                             <div class="rounded-bottom p-4">
                                 <a href="#" class="h4 d-inline-block mb-4">Stock Research</a>
