@@ -6,6 +6,8 @@
   "dev_server" : "http://127.0.0.1:8000",
   "RAZORPAY_KEY_ID" : "rzp_test_eR8UOYsnBFwq49",
   "RAZORPAY_KEY_SECRET" : "ttfyVQSOHoP1ZyBFsjK4ZG6a",
+  "dev_img_path" : "",
+  "prod_img_path" : "/static",
   "dependencies": {
   }
 }

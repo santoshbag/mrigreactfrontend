@@ -12,6 +12,12 @@ import "../sidenavdiv.css";
 import Plot from "react-plotly.js";
 import {fetchPortOptimize, fetchSecAnalysis} from "../../api";
 import DataTable from "../datatable"; // Include this CSS file to style the sidebar layout
+import settings from '../../resources/settings.json';
+
+var url = settings.dev_server;
+if (settings.environment === "production"){
+    url = settings.prod_server;
+}
 
 const formatDate = (date) => {
     if (!date) return null;
@@ -237,7 +243,7 @@ const PortfolioAnalytics = (portfolioId) => {
     console.log('DEFAULT STATE PORT ITEMS ',items);
     const fetchPortfolios = async () => {
         try{
-    const response = await axios.get("http://127.0.0.1:8000/api/portfolios/",
+    const response = await axios.get(`${url}/api/portfolios/`,
         { headers: {
                     Authorization: `Bearer ${token}`,  // Pass the JWT token in Authorization header
                 },
@@ -278,7 +284,7 @@ const PortfolioAnalytics = (portfolioId) => {
             portfolio_id: portfolioId,
             };
         // const data = { portfolio_id: portfolioId };
-        const response = await axios.post("http://127.0.0.1:8000/api/portfolios/items/",
+        const response = await axios.post(`${url}/api/portfolios/items/`,
             data,
             {
                 headers: {

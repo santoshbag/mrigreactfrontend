@@ -5,7 +5,12 @@ import "./PortfolioManager.css";
 import {Navigate} from "react-router-dom";
 import stockData from '../../resources/stocklist.json';
 import DynamicStockCharts from "../dynamicStockCharts_plotly";
+import settings from '../../resources/settings.json';
 
+var url = settings.dev_server;
+if (settings.environment === "production"){
+    url = settings.prod_server;
+}
 
 const DisplayValueSeries = (data) => {
     return(<div>
@@ -32,7 +37,7 @@ const PortfolioPerformance = () => {
 
     const fetchPortfolios = async () => {
         try{
-    const response = await axios.get("http://127.0.0.1:8000/api/portfolios/",
+    const response = await axios.get(`${url}/api/portfolios/`,
         { headers: {
                     Authorization: `Bearer ${token}`,  // Pass the JWT token in Authorization header
                 },
@@ -57,7 +62,7 @@ const PortfolioPerformance = () => {
         const token = localStorage.getItem('authToken'); // Assuming you store token in localStorage
         console.log('PORTFOLIO ID PARAMETER ->',portfolioId)
         // const data = { portfolio_id: portfolioId };
-        const response = await axios.post("http://127.0.0.1:8000/api/portfolios/items/",
+        const response = await axios.post(`${url}/api/portfolios/items/`,
             {
                 action: "fetchPerformance",  // Specify the fetch action
                 portfolio_id: portfolioId

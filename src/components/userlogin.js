@@ -4,9 +4,14 @@ import "./login.css";
 import settings from '../resources/settings.json';
 import axiosInstance from './axiosInstance';
 
+var url = settings.dev_server;
+if (settings.environment === "production"){
+    url = settings.prod_server;
+}
+
 const initializeCSRF = async () => {
   try {
-    await axiosInstance.get('/api/csrf/'); // Trigger CSRF cookie setup
+    await axiosInstance.get(`${url}/api/csrf/`); // Trigger CSRF cookie setup
     console.log('CSRF initialized');
   } catch (error) {
     console.error('Failed to initialize CSRF:', error);
@@ -14,7 +19,7 @@ const initializeCSRF = async () => {
 };
 const Login = () => {
     const [formData, setFormData] = useState({ username: "", password: "" });
-    const googleLoginUrl = "http://127.0.0.1:8000/accounts/google/login/";
+    const googleLoginUrl = `${url}/accounts/google/login/`;
 
     axios.defaults.withCredentials = true; // Send cookies with requests
 
@@ -22,7 +27,7 @@ const Login = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://127.0.0.1:8000/api/auth/login/",
+            const response = await axios.post(`${url}/api/auth/login/`,
                 formData, {
                     headers: {
                         'Content-Type': 'application/json',
@@ -68,7 +73,7 @@ const Login = () => {
                 Or
                 <button
         onClick={() => {
-          window.location.href = "http://127.0.0.1:8000/accounts/google/login/";
+          window.location.href = `${url}/accounts/google/login/`;
         }}
       >
         Login with Google

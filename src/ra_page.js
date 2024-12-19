@@ -25,8 +25,8 @@ import Topbar from "./pages/topbar";
 import Footer from "./pages/footer";
 import OptionPricing from "./components/optionpricer";
 import Carousel from "./pages/carousel";
-
-
+import bonds from './img/bonds.jpg';
+import analytics from './img/analytics.jpg';
 
 function RAPage() {
   return (
@@ -69,7 +69,7 @@ function RAPage() {
                     <div class="col-md-6 col-lg-6 wow fadeInUp" data-wow-delay="0.4s">
                         <div class="service-item">
                             <div class="service-img">
-                                <img src={`${process.env.PUBLIC_URL}/img/bonds.jpg`} class="img-fluid rounded-top w-100" alt="Image"/>
+                                <img src={bonds} class="img-fluid rounded-top w-100" alt="Image"/>
                             </div>
                             <div class="rounded-bottom p-4">
                                 <a href="/quant/" class="h4 d-inline-block mb-4">Quantitative Tools</a>
@@ -83,7 +83,7 @@ function RAPage() {
                     <div class="col-md-6 col-lg-6 wow fadeInUp" data-wow-delay="0.6s">
                         <div class="service-item">
                             <div class="service-img">
-                                <img src={`${process.env.PUBLIC_URL}/img/analytics.jpg`} class="img-fluid rounded-top w-100" alt="Image"/>
+                                <img src={analytics} class="img-fluid rounded-top w-100" alt="Image"/>
                             </div>
                             <div class="rounded-bottom p-4">
                                 <a href="/os/" class="h4 d-inline-block mb-4">Risk and Analytics</a>

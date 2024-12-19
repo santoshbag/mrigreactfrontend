@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./login.css";
+import settings from '../resources/settings.json';
 
+var url = settings.dev_server;
+if (settings.environment === "production"){
+    url = settings.prod_server;
+}
 const Register = () => {
     const [formData, setFormData] = useState({
         username: "",
@@ -14,7 +19,7 @@ const Register = () => {
     const handleRegister = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://127.0.0.1:8000/api/register_user/",
+            const response = await axios.post(`${url}/api/register_user/`,
                 formData,
                 {
                     headers: {

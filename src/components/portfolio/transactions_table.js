@@ -6,7 +6,12 @@ import stockData from "../../resources/stocklist.json";
 import Select from "react-select";
 import {Navigate} from "react-router-dom";
 import {verticalPadding} from "plotly.js/src/traces/parcoords/constants";
+import settings from '../../resources/settings.json';
 
+var url = settings.dev_server;
+if (settings.environment === "production"){
+    url = settings.prod_server;
+}
 const formatDate = (date) => {
     if (!date) return null;
     const year = date.getFullYear();
@@ -70,7 +75,7 @@ const TransactionsTable = ({portfolioID}) => {
             search_text: searchText
             };
         // const data = { portfolio_id: portfolioId };
-        const response = await axios.post("http://127.0.0.1:8000/api/portfolios/items/",
+        const response = await axios.post(`${url}/api/portfolios/items/`,
             data,
             {
                 headers: {
@@ -106,7 +111,7 @@ const TransactionsTable = ({portfolioID}) => {
             };
 
        try{
-        const response = await axios.post("http://127.0.0.1:8000/api/portfolios/items/",
+        const response = await axios.post(`${url}/api/portfolios/items/`,
             data,{
             headers: {
                     Authorization: `Bearer ${token}`,  // Pass the JWT token in Authorization header

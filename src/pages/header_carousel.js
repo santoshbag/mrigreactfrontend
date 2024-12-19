@@ -2,6 +2,8 @@ import React from 'react';
 import { Carousel } from 'react-bootstrap';
 import './carousel.css'
 // import 'bootstrap/dist/css/bootstrap.min.css';
+import carousel1 from '../img/carousel-1.jpg'
+import carousel2 from '../img/carousel-2.jpg'
 
 function HeaderCarousel() {
     return (
@@ -9,7 +11,7 @@ function HeaderCarousel() {
             <Carousel.Item style={{height:"700px"}}>
                       <div className="carousel-image-wrapper">
 
-              <img src="/img/carousel-1.jpg" className="img-fluid w-100" alt="Image"/>
+              <img src={carousel1} className="img-fluid w-100" alt="Image"/>
           <div className="overlay"></div> {/* Overlay div */}
         </div>
                 <Carousel.Caption>
@@ -55,7 +57,7 @@ function HeaderCarousel() {
             <Carousel.Item style={{height:"700px"}}>
                         <div className="carousel-image-wrapper">
 
-              <img src="/img/carousel-2.jpg" className="img-fluid w-100" alt="Image"/>
+              <img src={carousel2} className="img-fluid w-100" alt="Image"/>
           <div className="overlay"></div> {/* Overlay div */}
         </div>
                 <Carousel.Caption>
@@ -102,7 +104,7 @@ function HeaderCarousel() {
             <Carousel.Item style={{height:"700px"}}>
                       <div className="carousel-image-wrapper">
 
-              <img src="/img/carousel-1.jpg" className="img-fluid w-100" alt="Image"/>
+              <img src={carousel1} className="img-fluid w-100" alt="Image"/>
           <div className="overlay"></div> {/* Overlay div */}
         </div>
 

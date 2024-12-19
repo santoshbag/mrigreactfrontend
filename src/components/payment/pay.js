@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 // import Razorpay from "razorpay";
 import axios from "axios";
 import settings from "../../resources/settings.json";
+var url = settings.dev_server;
+if (settings.environment === "production"){
+    url = settings.prod_server;
+}
 
 const loadRazorpayScript = (src) => {
   return new Promise((resolve) => {
@@ -57,7 +61,7 @@ const CheckoutButton = ({paymentAmount,order_no}) => {
 
     // Step 2: Call Django API to create an order
 
-    const response = await axios.post("http://127.0.0.1:8000/payment/pay/",
+    const response = await axios.post(`${url}/payment/pay/`,
         jsondata,
         {
             headers: {

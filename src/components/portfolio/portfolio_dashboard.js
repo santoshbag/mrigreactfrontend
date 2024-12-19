@@ -4,7 +4,12 @@ import Select from "react-select"; // Install this library using: npm install re
 import "./PortfolioManager.css";
 import {Navigate} from "react-router-dom";
 import stockData from '../../resources/stocklist.json';
+import settings from '../../resources/settings.json';
 
+var url = settings.dev_server;
+if (settings.environment === "production"){
+    url = settings.prod_server;
+}
 const PortfolioDashBoard = () => {
     const [portfolios, setPortfolios] = useState([]);
     const [portfolioName, setPortfolioName] = useState("");
@@ -21,7 +26,7 @@ const PortfolioDashBoard = () => {
 
     const fetchPortfolios = async () => {
         try{
-    const response = await axios.get("http://127.0.0.1:8000/api/portfolios/",
+    const response = await axios.get(`${url}/api/portfolios/`,
         { headers: {
                     Authorization: `Bearer ${token}`,  // Pass the JWT token in Authorization header
                 },
@@ -43,7 +48,7 @@ const PortfolioDashBoard = () => {
     const createPortfolio = async () => {
         const portfolioName = prompt('Enter the new portfolio name');
         if (portfolioName) {
-            const response = await axios.post("http://127.0.0.1:8000/api/portfolios/",
+            const response = await axios.post(`${url}/api/portfolios/`,
                 {name: portfolioName},
                 {
                     headers: {
@@ -63,7 +68,7 @@ const PortfolioDashBoard = () => {
         const token = localStorage.getItem('authToken'); // Assuming you store token in localStorage
         console.log('PORTFOLIO ID PARAMETER ->',portfolioId)
         // const data = { portfolio_id: portfolioId };
-        const response = await axios.post("http://127.0.0.1:8000/api/portfolios/items/",
+        const response = await axios.post(`${url}/api/portfolios/items/`,
             {
                 action: "fetchP",  // Specify the fetch action
                 portfolio_id: portfolioId
@@ -98,7 +103,7 @@ const PortfolioDashBoard = () => {
             };
 
        try{
-        const response = await axios.post("http://127.0.0.1:8000/api/portfolios/items/",
+        const response = await axios.post(`${url}/api/portfolios/items/`,
             data,{
             headers: {
                     Authorization: `Bearer ${token}`,  // Pass the JWT token in Authorization header
@@ -126,7 +131,8 @@ const PortfolioDashBoard = () => {
     };
 
     const deletePortfolio = async (portfolioId) => {
-        await axios.delete("http://127.0.0.1:8000/api/portfolios/", { data: { portfolio_id: portfolioId } ,
+        await axios.delete(`${url}/api/portfolios/`,
+            { data: { portfolio_id: portfolioId } ,
             headers: {
                     Authorization: `Bearer ${token}`,  // Pass the JWT token in Authorization header
                     'Content-Type': 'application/json',
@@ -140,7 +146,8 @@ const PortfolioDashBoard = () => {
     };
 
     const deleteItem = async (itemId) => {
-        await axios.delete("http://127.0.0.1:8000/api/portfolios/items/", { data: { item_name: itemId,portfolio_id: selectedPortfolio }  ,
+        await axios.delete(`${url}/api/portfolios/items/`,
+            { data: { item_name: itemId,portfolio_id: selectedPortfolio }  ,
             headers: {
                     Authorization: `Bearer ${token}`,  // Pass the JWT token in Authorization header
                     'Content-Type': 'application/json',
