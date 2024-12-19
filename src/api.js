@@ -142,6 +142,65 @@ export const fetchBonds = async (params) => {
     const data = await response.json();
         return data;
     };
+
+export const fetchSecAnalysis = async () => {
+  // Replace with your actual API call
+    const response = await fetch(`${url}/api/sec_anlys/`);
+    const data = await response.json();
+        return data;
+    };
+
+export const fetchStockPredict = async (symbol) => {
+  // Replace with your actual API call
+    const response = await fetch(`${url}/api/stock_pred/${symbol}/`);
+        const data = await response.json();
+        return data;
+};
+
+export const fetchPortOptimize = async ({portfolio}) => {
+     try {
+        console.log('OPT API',portfolio)
+        const response = await axios.post(
+            `${url}/api/portopt/`,
+              portfolio,
+            {
+                headers: {
+                        "Content-Type": "application/json",
+                    },
+                // data: { portfolio: portfolio },
+            }
+        );
+        const data = await response.data;
+        return data;
+    } catch (error) {
+        console.error("Error getting optimization data:", error);
+        throw error;
+    }
+};
+
+//Portfolio APIs
+
+const createPortfolio = async (userId, portfolioName) => {
+    const response = await axios.post('${url}/api/create_portfolio', {
+        user_id: userId,
+        portfolio_name: portfolioName,
+    });
+    return response.data;
+};
+
+const deletePortfolio = async (portfolioId, itemIds) => {
+    const response = await axios.post('${url}/api/delete_portfolio_items', {
+        portfolio_id: portfolioId,
+        item_ids: itemIds
+    });
+    return response.data;
+};
+const fetchPortfolios = async (userId) => {
+    const response = await axios.get(`/api/get_portfolios?user_id=${userId}`);
+    const data = await response.json();
+    return data;
+    // setPortfolios(response.data.portfolios);
+};
 // export const fetchStockReturns = async (symbol) => {
 //   // Replace with your actual API call
 //   const response = await fetch(`https://api.example.com/returns?symbol=${symbol}&apikey=${apiKey}`);

@@ -2,8 +2,10 @@
   "name": "mriganalytics",
   "version": "1.0.0",
   "environment" : "development",
-  "prod_server" : "http://192.168.29.98",
+  "prod_server" : "",
   "dev_server" : "http://127.0.0.1:8000",
+  "RAZORPAY_KEY_ID" : "rzp_test_eR8UOYsnBFwq49",
+  "RAZORPAY_KEY_SECRET" : "ttfyVQSOHoP1ZyBFsjK4ZG6a",
   "dependencies": {
   }
 }

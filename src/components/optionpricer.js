@@ -82,7 +82,7 @@ const OptionPricing = () => {
     const putPayoffs = [];
 
     // Calculate payoffs for a range of spot prices
-    for (let S = 50; S <= 150; S += 1) {
+    for (let S = 1; S <= 100; S += 1) {
       prices.push(S);
       callPayoffs.push(blackScholes(S, strikePrice, timeToMaturity, riskFreeRate, volatility, "call",metric));
       putPayoffs.push(blackScholes(S, strikePrice, timeToMaturity, riskFreeRate, volatility, "put",metric));
@@ -177,8 +177,8 @@ const OptionPricing = () => {
       </td><td width="90%">
       <input
         type="range"
-        min="50"
-        max="150"
+        min="1"
+        max="100"
         value={spotPrice}
         onChange={(e) => setSpotPrice(Number(e.target.value))}
 
@@ -190,8 +190,8 @@ const OptionPricing = () => {
      </td><td width="90%">
       <input
         type="range"
-        min="50"
-        max="150"
+        min="1"
+        max="100"
         value={strikePrice}
         onChange={(e) => setStrikePrice(Number(e.target.value))}
 
@@ -204,7 +204,7 @@ const OptionPricing = () => {
       <input
         type="range"
         min="0"
-        max="3"
+        max="10"
         step="0.05"
         value={volatility}
         onChange={(e) => setVolatility(Number(e.target.value))}
@@ -218,7 +218,7 @@ const OptionPricing = () => {
       <input
         type="range"
         min="0"
-        max="2"
+        max="5"
         step={7/365}
         value={timeToMaturity}
         onChange={(e) => setTimeToMaturity(Number(e.target.value))}

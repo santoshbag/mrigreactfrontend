@@ -33,33 +33,36 @@ import RatesCalculator from "./components/ratesCalculator";
 import BondCalculator from "./components/BondCalculator";
 import Bonds from "./components/BondCalculator";
 import Carousel from "./pages/carousel";
+import SectorAn from "./components/sectorAnalysis";
+import StockPredict from "./components/Stock_Predict";
+import PortOptimization from "./components/portfolioOptimization";
 
 
 
-function QuantPage() {
+function ResearchPage() {
   const [activeTab, setActiveTab] = useState("Home");
 
   const location = useLocation();
-  const tabs = ['Rates','Bonds','Options','Swaps'];
+  const tabs = ['Sector','Predictive','Optimization'];
 
     const renderContent = () => {
         switch (activeTab) {
-            case "Rates":
+            case "Sector":
                 // return <div>Welcome to the Home Page!</div>;
                 return (
-                    <div className="container-fluid service py-5">
-                        <div className="container py-5">
+                    // <div className="container-fluid service py-5">
+                    //     <div className="container py-5">
                             <div className="row g-4">
                                 <div className="col-md-6 col-lg-12 wow fadeInUp" data-wow-delay="0.6s">
                                     <div className="service-item">
-                                        <RatesCalculator/>
-                                    </div>
+                                        <SectorAn/>
+                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        // </div>
+                    // </div>
                 );
-            case "Bonds":
+            case "Predictive":
                 // return <div>This is the Profile Page.</div>;
                 return (
                     <div className="container-fluid service py-5">
@@ -67,31 +70,29 @@ function QuantPage() {
                             <div className="row g-4">
                                 <div className="col-md-6 col-lg-12 wow fadeInUp" data-wow-delay="0.6s">
                                     <div className="service-item">
-                                        <Bonds/>
+                                        <StockPredict symbol="NIFTY 50"/>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 );
-            case "Options":
+            case "Optimization":
                 // return <div>Welcome to the Home Page!</div>;
                 return (
-                    <div className="container-fluid service py-5">
-                        <div className="container py-5">
+                    // <div className="container-fluid service py-5">
+                    //     <div className="container py-5">
                             <div className="row g-4">
                                 <div className="col-md-6 col-lg-12 wow fadeInUp" data-wow-delay="0.6s">
                                     <div className="service-item">
-                                        <MarketOption symbol=""/>
+                                        <PortOptimization portfolio={['IOC','GLENMARK', "INFY", "HDFCBANK", "ICICIBANK",'ITC','TCS','TATAMOTORS','TATAPOWER','ASIANPAINT']}/>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        // </div>
+                    // </div>
                 );
 
-            case "Swaps":
-                return <div>Welcome to Swaps Page.</div>;
             default:
                 return (
                     <div className="container-fluid service py-5">
@@ -120,7 +121,7 @@ function QuantPage() {
             {/*<!-- Header Start -->*/}
             <div class="container-fluid bg-breadcrumb">
                 <div class="container text-center py-5" style={{maxwidth: '500px'}}>
-                    <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Quantitative Calculators </h4>
+                    <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Quantitative Research  </h4>
                     {/*<ol class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">*/}
                     {/*    <li class="breadcrumb-item"><a href="index1.html">Home</a></li>*/}
                     {/*    <li class="breadcrumb-item"><a href="#">Pages</a></li>*/}
@@ -192,4 +193,4 @@ function QuantPage() {
   );
 }
 
-export default QuantPage;
+export default ResearchPage;

@@ -1,4 +1,4 @@
-    // import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import './lib/animate/animate.min.css';
 import './lib/lightbox/css/lightbox.min.css';
@@ -10,54 +10,33 @@ import './css/style.css';
 
 // src/App.js
 import React, {useEffect, useState} from 'react';
-// import LineChart from './LineChart';
-// import CandlestickChart from './candlestick'
-// import ConvertAndPrint from "./convertnprint";
-import Stockchart from "./components/stockchart_plotly";
-import OiTree from "./components/levelchart_plotly";
-// import DynamicSubplots from "./components/testplotly";
-import Chartgrid from "./components/chartgrid";
-import TableDisplay from "./components/tableDisplay";
-import DisplayTable from "./components/tableDisplay";
+
 import {useParams} from "react-router-dom";
 import StockSearch from "./components/search";
 import {fetchPage} from "./api";
 import DataTable from "./components/datatable";
 import DynamicStockCharts from "./components/dynamicStockCharts_plotly";
-import {fetchNews} from "./api";
 import NAV from "./pages/nav";
-import TopBar from "./pages/topbar";
+import Topbar from "./pages/topbar";
 import Footer from "./pages/footer";
-    import Carousel from "./pages/carousel";
+import Carousel from "./pages/carousel";
+import PortfolioManager from "./components/portfolio/portfolio_manager";
 
 
 
-function NewsPage() {
-  const [news, setNews] = useState(null);
-
-  useEffect(() =>
-      // Fetch the stock data from an API
-      {   console.log('STOCK PAGE 1');
-          fetchNews()
-      .then(data => {
-          console.log('News',data);
-          const news = JSON.parse(data)
-          setNews(news);
-          console.log('News',news);
-      })
-      },[])
+function PortfolioPage() {
 
   return (
       <div>
 
         {/*<!-- Navbar & Hero Start -->*/}
         <div class="container-fluid position-relative p-0">
-            <NAV activetag="news"/>
-            <Carousel activetag="news"/>
+            <NAV activetag="service"/>
+            <Carousel activetag="service"/>
             {/*<!-- Header Start -->*/}
             <div class="container-fluid bg-breadcrumb">
                 <div class="container text-center py-5" style={{maxwidth: '500px'}}>
-                    <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Market News </h4>
+                    <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">User Portfolios </h4>
                     {/*<ol class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">*/}
                     {/*    <li class="breadcrumb-item"><a href="index1.html">Home</a></li>*/}
                     {/*    <li class="breadcrumb-item"><a href="#">Pages</a></li>*/}
@@ -78,31 +57,21 @@ function NewsPage() {
                 {/*    /!*<p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt sint dolorem autem obcaecati, ipsam mollitia hic.*!/*/}
                 {/*    /!*</p>*!/*/}
                 {/*</div>*/}
+                <div class="row g-4">
 
-                {(news != null) ?
-                    Object.keys(news).map((key) => (
-                            <div className="row g-4">
-                                <h4 class=" display-6 mb-3 wow fadeInDown ">{key}</h4>
-                                {news[key].map((newsitem,index) => (
-                                    <div className="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.6s">
-                                        <div className="service-item" >
-                                        {/*<div height='200px'>*/}
-                                            <p className="px-3 py-2">{newsitem[0]}</p>
-                                            <a  href={newsitem[3]} className="h5 d-inline-block mb-4 px-3" target="_blank">{newsitem[1]}</a>
-                                        </div>
-                                    </div>
-                                 ))}
-                                <div></div>
-                            </div>
-                        ))
-                   :""}
+                 {/*<div>*/}
+                    {/*<div className="col-md-6 col-lg-12 wow fadeInUp" data-wow-delay="0.6s">*/}
+                        <div className="service-item">
+                            <PortfolioManager/>
+                        </div>
+                     {/*</div>*/}
+                 {/*</div>*/}
                 </div>
             </div>
-
+        </div>
 
         {/*}<!-- Back to Top -->*/}
         <a href="#" class="btn btn-primary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
-
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -118,9 +87,9 @@ function NewsPage() {
         <script src="index.js" defer></script>
 
         {/*</body>*/}
-        </div>
 
+        </div>
   );
 }
 
-export default NewsPage;
+export default PortfolioPage;

@@ -1,68 +1,83 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
+import "./login.css";
 
 const Register = () => {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password1, setPassword1] = useState('');
-  const [password2, setPassword2] = useState('');
-  const [error, setError] = useState('');
+    const [formData, setFormData] = useState({
+        username: "",
+        email: "",
+        password: "",
+        first_name: "",
+        last_name: "",
+    });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+    const handleRegister = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post("http://127.0.0.1:8000/api/register_user/",
+                formData,
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    // withCredentials: true,
+                },
+            );
+            alert(response.data.message);
+            window.location.href = '/';
+        } catch (error) {
+            alert(error);
+        }
+    };
 
-    if (password1 !== password2) {
-      setError("Passwords don't match");
-      return;
-    }
-
-    try {
-      const response = await axios.post('http://127.0.0.1:8000/api/auth/registration/', {
-        username,
-        email,
-        password1,
-        password2
-      });
-
-      localStorage.setItem('authToken', response.data.key);
-      window.location.href = '/home.html';  // Redirect to a protected page
-    } catch (err) {
-      setError('Error during registration');
-    }
-  };
-
-  return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password1}
-          onChange={(e) => setPassword1(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Confirm Password"
-          value={password2}
-          onChange={(e) => setPassword2(e.target.value)}
-        />
-        <button type="submit">Register</button>
-      </form>
-      {error && <p>{error}</p>}
-    </div>
-  );
+    return (
+        <div className="form-container">
+            <h2>Register</h2>
+            <form onSubmit={handleRegister}>
+                <input
+                    type="text"
+                    placeholder="Username"
+                    value={formData.username}
+                    onChange={(e) =>
+                        setFormData({ ...formData, username: e.target.value })
+                    }
+                />
+                <input
+                    type="email"
+                    placeholder="Email"
+                    value={formData.email}
+                    onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                    }
+                />
+                <input
+                    type="password"
+                    placeholder="Password"
+                    value={formData.password}
+                    onChange={(e) =>
+                        setFormData({ ...formData, password: e.target.value })
+                    }
+                />
+                <input
+                    type="text"
+                    placeholder="First Name"
+                    value={formData.first_name}
+                    onChange={(e) =>
+                        setFormData({ ...formData, first_name: e.target.value })
+                    }
+                />
+                <input
+                    type="text"
+                    placeholder="Last Name"
+                    value={formData.last_name}
+                    onChange={(e) =>
+                        setFormData({ ...formData, last_name: e.target.value })
+                    }
+                />
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    );
 };
 
 export default Register;

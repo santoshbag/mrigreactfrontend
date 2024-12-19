@@ -1,0 +1,94 @@
+.portfolio-manager {
+    font-family: Arial, sans-serif;
+    margin: 20px auto;
+    max-width: 800px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.portfolio-dropdown {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #333;
+}
+
+.portfolio-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.portfolio-table th,
+.portfolio-table td {
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.portfolio-table thead {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.portfolio-table tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+.add-item-row input,
+.add-item-row select {
+    width: 100%;
+    padding: 8px;
+    margin: 4px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.add-button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-button:hover {
+    background-color: #218838;
+}
+
+.create-portfolio-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.create-portfolio-btn:hover {
+    background-color: #0056b3;
+}
+
+.delete-icon {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+.delete-icon:hover {
+    transform: scale(1.2);
+    transition: transform 0.2s ease-in-out;
+}

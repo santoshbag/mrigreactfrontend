@@ -29,6 +29,7 @@ import TopBar from "./pages/topbar";
 import Footer from "./pages/footer";
 import MarketOption from "./components/marketoptions";
 import Carousel from "./pages/carousel";
+import StockPredict from "./components/Stock_Predict";
 
 
 
@@ -168,6 +169,17 @@ function StockPage() {
                     <div className="col-md-6 col-lg-12 wow fadeInUp" data-wow-delay="0.6s">
                         <div className="service-item">
                           <Chartgrid rows={1} cols={1} symbols={[symbol]} charttype={['oi']}/>
+                        </div>
+                     </div>
+                        : ""}
+
+                    <div></div>
+                    <h4>AI Stock Prediction (LTSM Model)</h4>
+
+                    {(stkPage != null) ?
+                    <div className="col-md-6 col-lg-12 wow fadeInUp" data-wow-delay="0.6s">
+                        <div className="service-item">
+                          <StockPredict symbol={symbol}/>
                         </div>
                      </div>
                         : ""}

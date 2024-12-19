@@ -14,8 +14,8 @@ import Datatable from "./components/datatable";
 import DisplayTable from "./components/tableDisplay";
 import DynamicStockCharts from "./components/dynamicStockCharts_plotly";
 
-import Login from "./components/userlogin";
-import Register from "./components/userregistration";
+// import Login from "./components/userlogin";
+// import Register from "./components/userregistration";
 import SocialLogin from "./components/socialuserlogin";
 import OptionPricing from "./components/optionpricer";
 import OS from "./os";
@@ -24,6 +24,13 @@ import SpotRateForm from "./components/spotrateform";
 import Rates from "./components/ratesCalculator";
 import Bonds from "./components/BondCalculator";
 import HeaderCarousel from "./pages/header_carousel";
+import SectorAnalysis from "./components/Sector_Analysis";
+import StockPredict from "./components/Stock_Predict";
+import SectorAn from "./components/sectorAnalysis";
+import Login from "./components/user/user_login";
+import Register from "./components/user/user_registration";
+import PortfolioManager from "./components/portfolio/portfolio_manager";
+import CheckoutButton from "./components/payment/pay";
 
 function Test() {
   return (
@@ -34,7 +41,8 @@ function Test() {
       {/*<Stockchart symbol="IOC" levelFlag={true} volume={true}/>*/}
       {/*<Datatable table="ta" symbol="nifty_50"/>*/}
       {/*<OptionPricing/>*/}
-        <HeaderCarousel/>
+      {/*  <HeaderCarousel/>*/}
+        <CheckoutButton paymentAmount={5.25} order_no={"test_order"}/>
         {/*<Bonds/>*/}
       {/*<Register/>*/}
       {/*<SocialLogin/>*/}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './StockSearch.css';
-import stockData from './../resources/stocklist.json';
+import stockData from '../resources/stock_mf_list.json';
 const StockSearch = () => {
   const [stocks, setStocks] = useState([]);
 

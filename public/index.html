@@ -76,16 +76,20 @@
                 </div>
                 <div class="col-lg-4 text-center text-lg-end">
                     <div class="d-inline-flex align-items-center" style="height: 45px;">
-                        <a href="#/regsiter"><small class="me-3 text-dark"><i class="fa fa-user text-primary me-2"></i>Register</small></a>
-                        <a href="/login"><small class="me-3 text-dark"><i class="fa fa-sign-in-alt text-primary me-2"></i>Login</small></a>
-                        <div class="dropdown">
+                        <a href="/register"><small class="me-3 text-dark"><i class="fa fa-user text-primary me-2"></i>Register</small></a>
+<!--                        <a href="/login"><small class="me-3 text-dark"><i class="fa fa-sign-in-alt text-primary me-2"></i>Login</small></a>-->
+                            <span id="username-display"></span> <!-- This will display the username -->
+
+                        <a id="login-link" href="/login"><small class="me-3 text-dark"><i class="fa fa-sign-in-alt text-primary me-2"></i>Login</small></a>
+
+                        <div  id="user-menu" class="dropdown">
                             <a href="#" class="dropdown-toggle text-dark" data-bs-toggle="dropdown"><small><i class="fa fa-home text-primary me-2"></i> My Dashboard</small></a>
                             <div class="dropdown-menu rounded">
-                                <a href="#" class="dropdown-item"><i class="fas fa-user-alt me-2"></i> My Profile</a>
-                                <a href="#" class="dropdown-item"><i class="fas fa-comment-alt me-2"></i> Inbox</a>
-                                <a href="#" class="dropdown-item"><i class="fas fa-bell me-2"></i> Notifications</a>
-                                <a href="#" class="dropdown-item"><i class="fas fa-cog me-2"></i> Account Settings</a>
-                                <a href="#" class="dropdown-item"><i class="fas fa-power-off me-2"></i> Log Out</a>
+                                <a href="/myportfolio/" class="dropdown-item"><i class="fas fa-user-alt me-2"></i> My Portfolio</a>
+<!--                                <a href="#" class="dropdown-item"><i class="fas fa-comment-alt me-2"></i> Inbox</a>-->
+<!--                                <a href="#" class="dropdown-item"><i class="fas fa-bell me-2"></i> Notifications</a>-->
+<!--                                <a href="#" class="dropdown-item"><i class="fas fa-cog me-2"></i> Account Settings</a>-->
+                                <a href="#"  onclick="handleLogout()" class="dropdown-item"><i class="fas fa-power-off me-2"></i> Log Out</a>
                             </div>
                         </div>
                     </div>
@@ -117,7 +121,7 @@
                 <div class="row g-5">
                     <div class="col-md-6 col-lg-6 col-xl-4">
                         <div class="footer-item">
-                            <a href="index1.html" class="p-0">
+                            <a href="/" class="p-0">
                                 <h4 class="text-white"><i class="fas fa-search-dollar me-3"></i>Mrig Analytics</h4>
                                 <!-- <img src="img/logo.png" alt="Logo"> -->
                             </a>
@@ -226,9 +230,52 @@
         <script src="lib/counterup/counterup.min.js"></script>
         <script src="lib/lightbox/js/lightbox.min.js"></script>
         <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
+        <script>
+        function toggleLoginMenu() {
+            const username = localStorage.getItem('username');
+            const loginLink = document.getElementById('login-link');
+            const userMenu = document.getElementById('user-menu');
+            const usernameDisplay = document.getElementById('username-display'); // New element to display username
+
+            if (username) {
+                // loginLink.textContent = 'Logout';
+                loginLink.style.display = 'none'; // Hide login link
+                // loginLink.href = '#'; // Prevent navigation
+                userMenu.style.display = 'inline-block'; // Show dropdown menu
+                // loginLink.onclick = () => {
+                //     localStorage.removeItem('username'); // Clear username
+                //     alert('Logged out successfully!');
+                //     toggleLoginLogout(); // Update the link
+                // };
+                usernameDisplay.textContent = `Hello, ${username}`; // Display the username next to Logout link
+
+            } else {
+                // Show login link, hide dropdown menu
+                loginLink.style.display = 'inline'; // Show login link
+                userMenu.style.display = 'none'; // Hide dropdown menu
+                // loginLink.textContent = 'Login';
+                // loginLink.href = '/login/';
+                // loginLink.onclick = null; // Remove logout handler
+                usernameDisplay.textContent = ''; // Clear the username display if not logged in
+
+            }
+        }
+
+        function handleLogout() {
+            const username = localStorage.getItem('username');
+            localStorage.removeItem('username'); // Clear username from localStorage
+            localStorage.removeItem('authToken'); // Clear username from localStorage
+            toggleLoginMenu(); // Update the UI
+            alert(username+' Logged out successfully!');
+        }
+
+        document.addEventListener('DOMContentLoaded', toggleLoginMenu);
+    </script>
+
   </body>
 </html>

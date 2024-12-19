@@ -20,17 +20,21 @@ import RAPage from "./ra_page";
 import SSPage from "./ss_page";
 import MFPage from "./mf_page";
 import Login from "./components/userlogin";
-import PortfolioPage from "./portfolio";
+import PortfolioPage from "./portfolio_page";
 import StockHome from "./stock_home";
 import QuantPage from "./quant_page";
 import NewsPage1 from "./stockhome";
+import ResearchPage from "./research_page";
+import LoginPage from "./login_page";
+import RegisterPage from "./register_page";
 
 const App = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage/>} />
         <Route path="/marketpage" element={<MarketPage />} />
         <Route path="/stock/" element={<StockHome />} />
         <Route path="/stock/:symbol" element={<StockPage />} />
@@ -42,6 +46,8 @@ const App = () => {
         <Route path="/mf/" element={<MFPage />} />
         <Route path="/portfolio/" element={<PortfolioPage />} />
         <Route path="/quant/" element={<QuantPage />} />
+        <Route path="/research/" element={<ResearchPage />} />
+        <Route path="/myportfolio/" element={<PortfolioPage />} />
 
         <Route path="/test" element={<Test />} />
         {/*<Route path="/returns" element={<ReturnsPage />} />*/}

@@ -102,12 +102,12 @@ function IAPage() {
                                 <img src={`${process.env.PUBLIC_URL}/img/ss1.jpg`} class="img-fluid rounded-top w-100" alt="Image"/>
                             </div>
                             <div class="rounded-bottom p-4">
-                                <a href="#" class="h4 d-inline-block mb-4">Stock Research</a>
+                                <a href="/research/" class="h4 d-inline-block mb-4">Stock Research</a>
                                 <p class="mb-4">
                                     Stock research tool provides comprehensive information and analysis on the latest price movements, return profiles for various periods.
                                     It is complemented with important Technical Indicators and respective graphs. Fundamental parameters and a historic evolution is provided.
                                 </p>
-                                <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
+                                <a class="btn btn-primary rounded-pill py-2 px-4" href="/research/">Learn More</a>
                             </div>
                         </div>
                     </div>

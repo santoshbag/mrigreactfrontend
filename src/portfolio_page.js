@@ -33,78 +33,85 @@ import RatesCalculator from "./components/ratesCalculator";
 import BondCalculator from "./components/BondCalculator";
 import Bonds from "./components/BondCalculator";
 import Carousel from "./pages/carousel";
+import SectorAn from "./components/sectorAnalysis";
+import StockPredict from "./components/Stock_Predict";
+import PortOptimization from "./components/portfolioOptimization";
+import PortfolioMaintenance from "./components/portfolio/portfolio_maint";
+import PortfolioManager from "./components/portfolio/portfolio_manager";
+import PortfolioDashBoard from "./components/portfolio/portfolio_dashboard";
+import PortfolioComposition from "./components/portfolio/port_comp";
+import PortfolioAnalytics from "./components/portfolio/portfolio_analytics";
+import PortfolioPerformance from "./components/portfolio/portfolio_performance";
 
 
 
-function QuantPage() {
-  const [activeTab, setActiveTab] = useState("Home");
+function PortfolioPage() {
+  const [activeTab, setActiveTab] = useState("Dashboard");
 
   const location = useLocation();
-  const tabs = ['Rates','Bonds','Options','Swaps'];
+  const tabs = ['Dashboard','Maintenance','Performance','Analytics'];
 
     const renderContent = () => {
         switch (activeTab) {
-            case "Rates":
+            case "Dashboard":
                 // return <div>Welcome to the Home Page!</div>;
                 return (
-                    <div className="container-fluid service py-5">
-                        <div className="container py-5">
+                    // <div className="container-fluid service py-5">
+                    //     <div className="container py-5">
                             <div className="row g-4">
                                 <div className="col-md-6 col-lg-12 wow fadeInUp" data-wow-delay="0.6s">
                                     <div className="service-item">
-                                        <RatesCalculator/>
-                                    </div>
+                                        <PortfolioDashBoard/>
+                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        // </div>
+                    // </div>
                 );
-            case "Bonds":
+            case "Maintenance":
                 // return <div>This is the Profile Page.</div>;
                 return (
-                    <div className="container-fluid service py-5">
-                        <div className="container py-5">
+                    // <div className="container-fluid service py-5">
+                    //     <div className="container py-5">
                             <div className="row g-4">
                                 <div className="col-md-6 col-lg-12 wow fadeInUp" data-wow-delay="0.6s">
                                     <div className="service-item">
-                                        <Bonds/>
+                                        <PortfolioMaintenance/>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        // </div>
+                    // </div>
                 );
-            case "Options":
+            case "Performance":
                 // return <div>Welcome to the Home Page!</div>;
                 return (
-                    <div className="container-fluid service py-5">
-                        <div className="container py-5">
+                    // <div className="container-fluid service py-5">
+                    //     <div className="container py-5">
                             <div className="row g-4">
                                 <div className="col-md-6 col-lg-12 wow fadeInUp" data-wow-delay="0.6s">
                                     <div className="service-item">
-                                        <MarketOption symbol=""/>
+                                        <PortfolioPerformance/>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        // </div>
+                    // </div>
                 );
 
-            case "Swaps":
-                return <div>Welcome to Swaps Page.</div>;
             default:
                 return (
-                    <div className="container-fluid service py-5">
-                        <div className="container py-5">
+                    // <div className="container-fluid service py-5">
+                    //     <div className="container py-5">
                             <div className="row g-4">
                                 <div className="col-md-6 col-lg-12 wow fadeInUp" data-wow-delay="0.6s">
                                     <div className="service-item">
-                                        <RatesCalculator/>
+                                        <PortfolioAnalytics/>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        // </div>
+                    // </div>
                 );
         }
     };
@@ -120,7 +127,7 @@ function QuantPage() {
             {/*<!-- Header Start -->*/}
             <div class="container-fluid bg-breadcrumb">
                 <div class="container text-center py-5" style={{maxwidth: '500px'}}>
-                    <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Quantitative Calculators </h4>
+                    <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">User Portfolio  </h4>
                     {/*<ol class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">*/}
                     {/*    <li class="breadcrumb-item"><a href="index1.html">Home</a></li>*/}
                     {/*    <li class="breadcrumb-item"><a href="#">Pages</a></li>*/}
@@ -192,4 +199,4 @@ function QuantPage() {
   );
 }
 
-export default QuantPage;
+export default PortfolioPage;

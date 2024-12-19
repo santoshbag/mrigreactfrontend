@@ -20,21 +20,31 @@ const DynamicStockCharts = ({ stocks = [],graphdata = [],metric = 'price' }) => 
             // return { symbol, data: stock };
             // return {symbol, data : JSON.parse(stock)};
             return (JSON.parse(stock));
+            // return (stock);
           })
       );
 
       setStockData(fetchedData); // Set all fetched stock data in state
       setLoading(false);
     };
-      if (graphdata.length === 0) {
-        fetchAllStockData();
-      }else{
-        setStockData(graphdata);
-        setLoading(false);
-      }
+      // if (graphdata.length === 0) {
+      //   fetchAllStockData();
+      // }else{
+      //   console.log('GRAPH DATA',graphdata)
+      //
+      //   setStockData([JSON.parse(graphdata)]);
+      //   setLoading(false);
+      // }
 
   }, [stocks]);
 
+    useEffect(() => {
+       if (graphdata.length > 0) {
+        console.log('GRAPH DATA',graphdata)
+        setStockData([JSON.parse(graphdata)]);
+        setLoading(false);
+      }
+  }, [graphdata]);
 
   const preparePlotData = (metric) => {
     console.log('STK DATA 1', stockData);
@@ -45,8 +55,9 @@ const DynamicStockCharts = ({ stocks = [],graphdata = [],metric = 'price' }) => 
       // Iterate over each stock in the data to create traces
 
       stockData.forEach((stock, index) => {
-
-        if (metric === "price") {
+        if (stock.length > 0)
+        {
+          if(metric === "price") {
           const trace = {
             x: stock.map((d) => new Date(d.date).toLocaleDateString()),
             // open: stock.map((d) => d.open),
@@ -67,7 +78,11 @@ const DynamicStockCharts = ({ stocks = [],graphdata = [],metric = 'price' }) => 
           console.log('metric', metric)
           const trace = {
             x: stock.map((d) => new Date(d.date).toLocaleDateString()),
-            y: stock.map((d) => {cumulative += (d.daily_log_returns != null  ? d.daily_log_returns : d.daily_logreturns);  ; return cumulative;}) , // Calculating cumulative return from daily returns
+            y: stock.map((d) => {
+              cumulative += (d.daily_log_returns != null ? d.daily_log_returns : d.daily_logreturns);
+              ;
+              return cumulative;
+            }), // Calculating cumulative return from daily returns
             type: 'scatter',
             mode: 'lines',
             name: stock[0].symbol,
@@ -77,11 +92,11 @@ const DynamicStockCharts = ({ stocks = [],graphdata = [],metric = 'price' }) => 
 
           console.log('Returns', trace)
           // return trace;
-        }
-        ;
+        };
         // console.log('trace', stock);
 
         // traces.push(trace);
+      };
       });
       // setTraces(traces);
       console.log('traces', traces);
@@ -128,13 +143,14 @@ const DynamicStockCharts = ({ stocks = [],graphdata = [],metric = 'price' }) => 
     return <div>Loading...</div>;
   }
     return (
+        traces.length > 0 ?
         <Plot
             data={traces}
             layout={layout}
             useResizeHandler={true}  // Automatically resize the chart
             style={{ width: '100%', height: '100%' }}  // Full width/height of container
             config={{responsive: true}}
-        />
+        /> : ""
     );
   }
 
